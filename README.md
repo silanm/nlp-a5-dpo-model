@@ -14,7 +14,7 @@ The goal is to improve the model's ability to generate helpful, harmless, and hi
 ## Dataset
 
 * **Name:** `argilla/distilabel-intel-orca-dpo-pairs`
-* **Source:** [`huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs`]([https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs)
+* **Source:** [`huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs`](https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs)
 * **Description:** 
 The argilla/distilabel-intel-orca-dpo-pairs dataset is a collection of prompts and responses designed for preference learning, specifically Direct Preference Optimization (DPO). It contains pairs of responses to a given prompt, with one "chosen" (preferred) response and one "rejected" (less preferred) response. The dataset is derived from a combination of sources, drawing inspiration from the Orca and UltraChat datasets, and focuses on instruction-following and question-answering tasks with an emphasis on helpfulness and harmlessness. It is created using distilabel.
 
