@@ -10,20 +10,6 @@ This project demonstrates fine-tuning a pre-trained language model (specifically
 
 The goal is to improve the model's ability to generate helpful, harmless, and high-quality responses, aligned with human preferences.  
 
-The project includes:
-
-* **Training Script**  
-A Python script (`train_dpo_wandb.py`) that performs the DPO fine-tuning using the `trl` library and `transformers`.
-
-* **Weights & Biases Integration:**
-Full integration with Weights & Biases (wandb) for experiment tracking, hyperparameter tuning (using sweeps), and model logging.
-
-* **Streamlit Interface:**
-A simple web application (`streamlit_app.py`) built with Streamlit that allows users to interact with the fine-tuned model.
-
-* **Hugging Face Hub Integration:**
-Code to push the trained model and tokenizer to the Hugging Face Hub.
-
 
 ## Dataset
 
