@@ -38,7 +38,7 @@ The argilla/distilabel-intel-orca-dpo-pairs dataset is a collection of prompts a
 *   **Hugging Face Hub Link:** [`huggingface.co/silanm/nlp-a5`](https://huggingface.co/silanm/nlp-a5)
 
 
-## Training
+## Experiments
 
 | Hyperparameter | Value |
 |----------------|-------|
@@ -75,7 +75,7 @@ We'll primarily focus on **`eval/loss`** (lower is better) and **`eval/rewards/a
 
 ### Top Performers (sorted by eval/rewards/accuracies)
 
-|Run|eval/loss|eval/rewards/accuracies ↓|learning_rate|beta|gradient_accumulation_steps|per_device_train_batch_size|max_steps|
+|Run|eval/loss|eval/rewards/accuracies|learning_rate|beta|gradient_accumulation_steps|per_device_train_batch_size|max_steps|
 |:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 |daily-sweep-1|0.6584|0.8219|0.0000538|0.2|4|8|500|
 |crimson-sweep-4|0.6629|0.8095|0.0000617|0.2|4|8|500|
