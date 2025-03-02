@@ -19,7 +19,7 @@ A Python script (`train_dpo_wandb.py`) that performs the DPO fine-tuning using t
 Full integration with Weights & Biases (wandb) for experiment tracking, hyperparameter tuning (using sweeps), and model logging.
 
 * **Streamlit Interface:**
-A simple web application (`app.py`) built with Streamlit that allows users to interact with the fine-tuned model.
+A simple web application (`streamlit_app.py`) built with Streamlit that allows users to interact with the fine-tuned model.
 
 * **Hugging Face Hub Integration:**
 Code to push the trained model and tokenizer to the Hugging Face Hub.
@@ -107,10 +107,10 @@ We'll primarily focus on **`eval/loss`** (lower is better) and **`eval/rewards/a
 
 | Type | Prompt | Response |
 |------|--------|----------|
-| Direct Question Answering | What is the capital of Thailand? | |
-| Instruction Following | Give me three tips for improving my time management skills | |
-| Open-Ended/Conversational | Why is it important to protect endangered species? | |
-| System Prompt | You are a helpful and honest assistant.<br />What are the steps to make a perfect pancake? | |
+| Direct Question Answering | What is the capital city of Thailand? | The capital city, capital of Thailand, is the country's capital. There are 2.7 million people living in the country, according to the official census. The country has a population of 4.6 million. (...) |
+| Instruction Following | Give me three tips for improving my time management skills | 1. Get a good, high-level understanding of what your time management requirements are. : This will help you better understand your time manager's expectations and how they may affect your time. <br />2. Ask for advice before you start your day. <br />3. Ask your time-management company about your current job. |
+| Open-Ended/Conversational | Why is it important to protect endangered species? | The problem, as scientists understand it, is that most species live in the wild, and these species will die out before they reach the human population. (...) |
+| System Prompt | You are a helpful and honest assistant.<br />What are the steps to make a perfect pancake? | (...) is a full-service pancake maker. It has all the ingredients you need, including: 1/4 cup sugar, 2 eggs, 3/4 tsp baking powder. Pour the batter into a glass or bowl and cover with plastic wrap. (...) |
 
 
 # Acknowledgements
