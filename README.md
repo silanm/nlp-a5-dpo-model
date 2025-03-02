@@ -1,7 +1,7 @@
 # DPO Fine-Tuned Language Model
 
 [![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-blue)](https://huggingface.co/silanm/nlp-a5)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](YOUR_STREAMLIT_APP_URL)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://nlp-a5-dpo-model-fxhwriaztrrhvk9jpwckm4.streamlit.app)
 
 
 ## Overview
@@ -30,7 +30,7 @@ Code to push the trained model and tokenizer to the Hugging Face Hub.
 * **Name:** `argilla/distilabel-intel-orca-dpo-pairs`
 * **Source:** [`huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs`]([https://huggingface.co/datasets/argilla/distilabel-intel-orca-dpo-pairs)
 * **Description:** 
-
+The argilla/distilabel-intel-orca-dpo-pairs dataset is a collection of prompts and responses designed for preference learning, specifically Direct Preference Optimization (DPO). It contains pairs of responses to a given prompt, with one "chosen" (preferred) response and one "rejected" (less preferred) response. The dataset is derived from a combination of sources, drawing inspiration from the Orca and UltraChat datasets, and focuses on instruction-following and question-answering tasks with an emphasis on helpfulness and harmlessness. It is created using distilabel.
 
 ## Model
 
@@ -65,13 +65,51 @@ Code to push the trained model and tokenizer to the Hugging Face Hub.
 
 
 ## Results
-...
 
-**Evaluation Metrics**: 
+Based on the `wandb_sweep_export.csv` data,
 
-**Qualitative Examples**: 
+### Evaluation Metrics
 
-**Discussion**: 
+We'll primarily focus on **`eval/loss`** (lower is better) and **`eval/rewards/accuracies`** (higher is better) to identify the best runs.
+
+
+### Top Performers (sorted by eval/rewards/accuracies)
+
+|Run|eval/loss|eval/rewards/accuracies ↓|learning_rate|beta|gradient_accumulation_steps|per_device_train_batch_size|max_steps|
+|:--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|daily-sweep-1|0.6584|0.8219|0.0000538|0.2|4|8|500|
+|crimson-sweep-4|0.6629|0.8095|0.0000617|0.2|4|8|500|
+|woven-sweep-5|0.6912|0.8110|0.0000675|0.2|4|8|500|
+|feasible-sweep-2|2.0949|0.8035|0.000169|0.5|4|8|500| 
+|soft-sweep-3|2.0004|0.7989|0.000146|0.5|4|8|500|
+|magic-sweep-7|1.2066|0.7782|0.000624|0.1|4|8|500|
+
+
+### Observations
+
+* **`daily-sweep-1 is the best`**: It has the lowest eval/loss and the highest eval/rewards/accuracies. This is the strongest performing run.
+
+* crimson-sweep-4 and woven-sweep-5 are also very good: They have very similar performance to daily-sweep-1, with slightly higher eval/loss but still excellent accuracy.
+
+* magic-sweep-7 is in a lower tier: While its eval/loss is better than many runs, it is not the best, and its accuracy is lower than the top three. The concerns about potential overfitting with its very high learning rate remain.
+
+* feasible-sweep-2 and soft-sweep-3: Good but worse than top 3.
+
+* The best runs all use `beta` = 0.2. Runs with beta = 0.01 consistently performed poorly.
+
+* The best runs have `learning_rate` in the 5e-5 to 7e-5 range. This confirms that this range is a good area to focus on.
+
+* `per_device_train_batch_size` = 8 and `gradient_accumulation_steps` = 4 seems to be a good combination.
+
+
+## Examples
+
+| Type | Prompt | Response |
+|------|--------|----------|
+| Direct Question Answering | What is the capital of Thailand? | |
+| Instruction Following | Give me three tips for improving my time management skills | |
+| Open-Ended/Conversational | Why is it important to protect endangered species? | |
+| System Prompt | You are a helpful and honest assistant.<br />What are the steps to make a perfect pancake? | |
 
 
 # Acknowledgements
