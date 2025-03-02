@@ -1,0 +1,23 @@
+program: train_dpo_wandb.py 
+name: nlp-a5-sweep
+method: bayes
+metric:
+  name: eval/loss
+  goal: minimize
+parameters:
+  learning_rate:
+    distribution: log_uniform
+    min: -13.8155  # log(1e-6)
+    max: -6.9078   # log(1e-3)
+  per_device_train_batch_size:
+    values: [2, 4, 8]
+  gradient_accumulation_steps:
+    values: [1, 2, 4]
+  beta:
+    values: [0.01, 0.1, 0.2, 0.5]
+  max_steps:
+    values: [100, 200, 500]
+command:
+  - C:\Users\silan\Desktop\A5\.venv\Scripts\python.exe  
+  - ${program}
+  - ${args}
