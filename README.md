@@ -38,7 +38,7 @@ The argilla/distilabel-intel-orca-dpo-pairs dataset is a collection of prompts a
 *   **Hugging Face Hub Link:** [`huggingface.co/silanm/nlp-a5`](https://huggingface.co/silanm/nlp-a5)
 
 
-## Experiments
+## Training Setup
 
 | Hyperparameter | Value |
 |----------------|-------|
@@ -60,11 +60,10 @@ The argilla/distilabel-intel-orca-dpo-pairs dataset is a collection of prompts a
 ### Weights & Biases Sweeps
 
 *   **Sweep Configuration:** `sweep_config.yaml`
-*   **Sweep Link:** [`nlp-a5-sweep/sweeps`](https://wandb.ai/sila-nmht-asian-institute-of-technology/nlp-a5-sweep/sweeps/r6rta83w)
-*   **Results:** 
+*   **Sweep Link:** [`nlp-a5-sweep/sweeps`](https://wandb.ai/sila-nmht-asian-institute-of-technology/nlp-a5-sweep?nw=nwusersilanmht)
 
 
-## Results
+## Training Results
 
 Based on the `wandb_sweep_export.csv` data,
 
@@ -88,6 +87,8 @@ We'll primarily focus on **`eval/loss`** (lower is better) and **`eval/rewards/a
 ### Observations
 
 * **`daily-sweep-1 is the best`**: It has the lowest eval/loss and the highest eval/rewards/accuracies. This is the strongest performing run.
+
+    ![AccuracyAndLoss](images/plot.png) 
 
 * crimson-sweep-4 and woven-sweep-5 are also very good: They have very similar performance to daily-sweep-1, with slightly higher eval/loss but still excellent accuracy.
 
